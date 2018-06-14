@@ -22,9 +22,16 @@ def check_unique_iter(string):
 def check_unique_recurs(string):
     """Checks if string contains unique characters recursively.
 
-    >>> check_unique_iter("cat")
+    >>> check_unique_recurs("cat")
     True
-    >>> check_unique_iter("baboon")
+    >>> check_unique_recurs("baboon")
     False"""
 
-    
+    #base case
+    if not string:
+        return True
+
+    if string[0] in string[1:]:
+        return False
+
+    return check_unique_recurs(string[1:])
